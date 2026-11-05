@@ -1,8 +1,9 @@
 import { __ } from '@wordpress/i18n';
 import { Button } from '@wordpress/components';
 import { decodeEntities } from '@wordpress/html-entities';
+import { ViewportSwitcher } from './viewport';
 
-export default function TopBar( { config, doc } ) {
+export default function TopBar( { config, doc, extra } ) {
 	const title =
 		decodeEntities(
 			typeof doc.record?.title === 'string'
@@ -24,18 +25,24 @@ export default function TopBar( { config, doc } ) {
 				<span className="dfb-fe__title" title={ title }>
 					{ title }
 				</span>
+				{ extra?.left }
 			</div>
-			<div className="dfb-fe__top-center" />
+			<div className="dfb-fe__top-center">
+				<ViewportSwitcher />
+			</div>
 			<div className="dfb-fe__top-right">
+				{ extra?.right }
 				<Button
 					icon="undo"
-					label={ __( 'Undo', 'df-builder' ) }
+					label={ __( 'Undo (Ctrl+Z)', 'df-builder' ) }
+					showTooltip
 					disabled={ ! doc.hasUndo }
 					onClick={ doc.undo }
 				/>
 				<Button
 					icon="redo"
-					label={ __( 'Redo', 'df-builder' ) }
+					label={ __( 'Redo (Ctrl+Shift+Z)', 'df-builder' ) }
+					showTooltip
 					disabled={ ! doc.hasRedo }
 					onClick={ doc.redo }
 				/>

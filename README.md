@@ -10,6 +10,24 @@ An Oxygen-style **full-screen page builder** for WordPress, for Digitalfeet clie
 - **Regular block editor:** click **Edit with DF Builder** in the post sidebar. Unsaved changes are saved first.
 - **Front end:** click **Edit with DF Builder** in the admin bar.
 
+### The builder screen
+
+```
+┌──────┬───────────────────────────────────────────────────────────────┐
+│  DF  │ Page title     [Desktop][Tablet][Landscape][Phone]  ↶ ↷ Save │
+├──┬───┴──────────┬─────────────────────────────────┬──────────────────┤
+│+ │ Add          │                                 │ Element settings │
+│≡ │ / Structure  │      Canvas (breakpoint width)  │ (style panel,    │
+│  │              │                                 │  dynamic data…)  │
+└──┴──────────────┴─────────────────────────────────┴──────────────────┘
+```
+
+- **Add:** DF elements grouped as Layout, Basic, Dynamic and Advanced. Click one to add it inside the selected container, or after the selected element. **All blocks** opens the full block library, with search and drag and drop.
+- **Structure:** the element tree. Click to select, drag to reorder, and use the arrows to move elements.
+- **Breakpoint buttons:** resize the canvas to the Tablet, Landscape or Phone width and switch the style panel to that breakpoint, so the styles you set apply to that screen size.
+- **Right panel:** the selected element's settings and the DF Builder style panel (the **Styles** tab).
+- **DF** (top left) exits back to where you came from.
+
 
 **Requires:** WordPress 6.6+ (6.7+ recommended for live dynamic-data previews of core blocks), PHP 8.1+.
 
