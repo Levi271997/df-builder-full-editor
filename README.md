@@ -41,6 +41,27 @@ An Oxygen-style **full-screen page builder** for WordPress, for Digitalfeet clie
   | Ctrl/⌘+Alt+T / Y | Insert before / after |
   | Alt+Shift+1 … 4 | Desktop / Tablet / Landscape / Phone |
 
+### Page and template settings
+
+Click an empty area of the canvas, or press **Esc** until nothing is selected, and the right panel shows:
+
+- **Pages and posts:** title, slug, status, a *View on site* link, and *Open in the WordPress editor*.
+- **Templates:** title and status, plus **Template settings**: type (header, content or footer), display conditions (include/exclude rules) and priority. These are the same settings as in the block editor sidebar. Only **published** templates are used on the site.
+
+Changes here are saved with the **Save** button, like any other edit.
+
+### Switching, creating and previewing
+
+- **▾ next to the title:** opens a menu of recent pages and all templates, so you can jump between them without leaving the builder. **New page** and **New template** create a draft and open it.
+- **👁 Preview:** saves first, then opens the page in a new tab. Templates preview on the home page.
+- **Unsaved changes:** if you try to leave, switch pages or close the tab with unsaved changes, the browser asks you to confirm.
+
+### Known limitations
+
+- There's no post locking yet. If two people edit the same page at the same time in the builder, the last save wins.
+- Other plugins' sidebar panels for the regular block editor don't appear in the builder. Use *Open in the WordPress editor* for those.
+- Like the rest of this plugin, the PHP side hasn't been tested on a live WordPress install yet. Try it on staging first.
+
 
 **Requires:** WordPress 6.6+ (6.7+ recommended for live dynamic-data previews of core blocks), PHP 8.1+.
 

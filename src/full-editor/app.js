@@ -21,6 +21,8 @@ import useEditorSettings from './use-editor-settings';
 import TopBar from './top-bar';
 import LeftPanel from './left-panel';
 import ClassesPanel from './classes-panel';
+import DocumentPanel from './document-panel';
+import Switcher, { PreviewButton, useUnsavedGuard } from './switcher';
 import { useViewport, canvasWidth } from './viewport';
 import {
 	useBuilderShortcuts,
@@ -170,6 +172,7 @@ export default function App( config ) {
 	const { postId, postType } = config;
 	const doc = useDocument( postType, postId );
 	const settings = useEditorSettings( config.settings, postId );
+	useUnsavedGuard( doc.isDirty );
 
 	if ( ! doc.isLoaded ) {
 		return (
@@ -189,7 +192,18 @@ export default function App( config ) {
 				settings={ settings }
 				useSubRegistry={ false }
 			>
-				<Layout config={ config } doc={ doc } settings={ settings } />
+				<Layout
+					config={ config }
+					doc={ doc }
+					settings={ settings }
+					topBarExtra={ {
+						left: <Switcher config={ config } />,
+						right: <PreviewButton config={ config } doc={ doc } />,
+					} }
+					rightEmpty={
+						<DocumentPanel config={ config } doc={ doc } />
+					}
+				/>
 				<Popover.Slot />
 				<Notices />
 			</BlockEditorProvider>

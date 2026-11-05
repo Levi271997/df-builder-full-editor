@@ -392,3 +392,60 @@ $left: 300px;
 	color: #757575;
 	font-size: 12px;
 }
+
+/* ---------------------------------------------------------------- phase 4 */
+.dfb-fe__switcher .components-button {
+	min-width: 24px;
+}
+
+.dfb-fe__switcher-menu {
+	width: 280px;
+	max-height: 70vh;
+	overflow-y: auto;
+	padding: 8px;
+}
+
+.dfb-fe-document .components-panel__body {
+	border-bottom: 1px solid $border;
+}
+
+.dfb-fe-document .components-base-control {
+	margin-bottom: 12px;
+}
+
+/* Template rule cards (shared with the block editor sidebar). */
+.dfb-rules {
+	.dfb-rule {
+		display: flex;
+		flex-direction: column;
+		gap: 6px;
+		padding: 8px;
+		margin-bottom: 8px;
+		border: 1px solid #e0e0e0;
+		border-radius: 4px;
+
+		&.is-exclude {
+			border-color: #f0b8b8;
+			background: #fff8f8;
+		}
+	}
+
+	.dfb-rule__head {
+		display: flex;
+		gap: 6px;
+		align-items: flex-end;
+
+		> :first-child {
+			flex: 0 0 90px;
+		}
+
+		> :nth-child(2) {
+			flex: 1;
+		}
+	}
+
+	h3 {
+		margin: 16px 0 8px;
+		font-size: 13px;
+	}
+}
