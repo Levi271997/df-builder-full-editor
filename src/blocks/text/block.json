@@ -1,0 +1,39 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "dfb/text",
+	"version": "0.1.0",
+	"title": "Text",
+	"category": "dfb",
+	"icon": "editor-paragraph",
+	"description": "Rich text with dynamic data support.",
+	"textdomain": "df-builder",
+	"usesContext": [
+		"postId",
+		"postType"
+	],
+	"supports": {
+		"html": false,
+		"anchor": true,
+		"className": true
+	},
+	"attributes": {
+		"dfb": {
+			"type": "object"
+		},
+		"content": {
+			"type": "string",
+			"default": ""
+		},
+		"tagName": {
+			"type": "string",
+			"default": "p"
+		}
+	},
+	"keywords": [
+		"paragraph",
+		"copy"
+	],
+	"editorScript": "file:./index.js",
+	"render": "file:./render.php"
+}

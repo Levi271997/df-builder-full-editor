@@ -1,0 +1,40 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "dfb/heading",
+	"version": "0.1.0",
+	"title": "Heading",
+	"category": "dfb",
+	"icon": "heading",
+	"description": "Heading (h1–h6) with dynamic data support.",
+	"textdomain": "df-builder",
+	"usesContext": [
+		"postId",
+		"postType"
+	],
+	"supports": {
+		"html": false,
+		"anchor": true,
+		"className": true
+	},
+	"attributes": {
+		"dfb": {
+			"type": "object"
+		},
+		"content": {
+			"type": "string",
+			"default": ""
+		},
+		"level": {
+			"type": "number",
+			"default": 2
+		}
+	},
+	"keywords": [
+		"title",
+		"h1",
+		"h2"
+	],
+	"editorScript": "file:./index.js",
+	"render": "file:./render.php"
+}

@@ -1,0 +1,30 @@
+{
+  "name": "df-builder-full-editor",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Oxygen-style full-screen page builder for WordPress on the block editor engine (Digitalfeet).",
+  "license": "GPL-2.0-or-later",
+  "scripts": {
+    "build": "wp-scripts build --webpack-copy-php",
+    "start": "wp-scripts start --webpack-copy-php",
+    "test": "wp-scripts test-unit-js",
+    "lint:js": "wp-scripts lint-js src",
+    "plugin-zip": "wp-scripts plugin-zip",
+    "env": "wp-env"
+  },
+  "files": [
+    "df-builder-full-editor.php",
+    "uninstall.php",
+    "includes",
+    "templates",
+    "assets",
+    "schema",
+    "build",
+    "README.md"
+  ],
+  "devDependencies": {
+    "@wordpress/env": "^10.39.0",
+    "@wordpress/scripts": "^30.27.0",
+    "typescript": "5.6"
+  }
+}

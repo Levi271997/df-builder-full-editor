@@ -1,0 +1,40 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "dfb/section",
+	"version": "0.1.0",
+	"title": "Section",
+	"category": "dfb",
+	"icon": "cover-image",
+	"description": "Full-width page section with a contained inner width.",
+	"textdomain": "df-builder",
+	"usesContext": [
+		"postId",
+		"postType"
+	],
+	"supports": {
+		"html": false,
+		"anchor": true,
+		"className": true
+	},
+	"attributes": {
+		"dfb": {
+			"type": "object"
+		},
+		"tagName": {
+			"type": "string",
+			"default": "section"
+		},
+		"contained": {
+			"type": "boolean",
+			"default": true
+		}
+	},
+	"keywords": [
+		"container",
+		"wrapper",
+		"row"
+	],
+	"editorScript": "file:./index.js",
+	"render": "file:./render.php"
+}

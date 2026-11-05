@@ -1,0 +1,40 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "dfb/link-wrapper",
+	"version": "0.1.0",
+	"title": "Link Wrapper",
+	"category": "dfb",
+	"icon": "admin-links",
+	"description": "Makes everything inside it one clickable link (cards, tiles).",
+	"textdomain": "df-builder",
+	"usesContext": [
+		"postId",
+		"postType"
+	],
+	"supports": {
+		"html": false,
+		"anchor": true,
+		"className": true
+	},
+	"attributes": {
+		"dfb": {
+			"type": "object"
+		},
+		"url": {
+			"type": "string",
+			"default": ""
+		},
+		"opensInNewTab": {
+			"type": "boolean",
+			"default": false
+		}
+	},
+	"keywords": [
+		"link",
+		"card",
+		"anchor"
+	],
+	"editorScript": "file:./index.js",
+	"render": "file:./render.php"
+}

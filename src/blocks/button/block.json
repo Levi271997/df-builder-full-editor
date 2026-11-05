@@ -1,0 +1,51 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "dfb/button",
+	"version": "0.1.0",
+	"title": "Button",
+	"category": "dfb",
+	"icon": "button",
+	"description": "Link styled as a button.",
+	"textdomain": "df-builder",
+	"usesContext": [
+		"postId",
+		"postType"
+	],
+	"supports": {
+		"html": false,
+		"anchor": true,
+		"className": true
+	},
+	"attributes": {
+		"dfb": {
+			"type": "object"
+		},
+		"text": {
+			"type": "string",
+			"default": ""
+		},
+		"url": {
+			"type": "string",
+			"default": ""
+		},
+		"opensInNewTab": {
+			"type": "boolean",
+			"default": false
+		},
+		"rel": {
+			"type": "string",
+			"default": ""
+		},
+		"variant": {
+			"type": "string",
+			"default": "primary"
+		}
+	},
+	"keywords": [
+		"link",
+		"cta"
+	],
+	"editorScript": "file:./index.js",
+	"render": "file:./render.php"
+}

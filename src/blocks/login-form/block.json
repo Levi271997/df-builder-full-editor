@@ -1,0 +1,48 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "dfb/login-form",
+	"version": "0.2.0",
+	"title": "Login Form",
+	"category": "dfb",
+	"icon": "admin-users",
+	"description": "WordPress login form; shows a logout link when logged in.",
+	"textdomain": "df-builder",
+	"usesContext": [
+		"postId",
+		"postType"
+	],
+	"supports": {
+		"html": false,
+		"anchor": true,
+		"className": true
+	},
+	"attributes": {
+		"dfb": {
+			"type": "object"
+		},
+		"redirect": {
+			"type": "string",
+			"default": ""
+		},
+		"showRemember": {
+			"type": "boolean",
+			"default": true
+		},
+		"showLostPassword": {
+			"type": "boolean",
+			"default": true
+		},
+		"loggedInText": {
+			"type": "string",
+			"default": "You are logged in."
+		}
+	},
+	"keywords": [
+		"login",
+		"sign in",
+		"account"
+	],
+	"editorScript": "file:./index.js",
+	"render": "file:./render.php"
+}

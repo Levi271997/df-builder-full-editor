@@ -1,0 +1,50 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "dfb/image",
+	"version": "0.1.0",
+	"title": "Image",
+	"category": "dfb",
+	"icon": "format-image",
+	"description": "Image from the media library or dynamic data.",
+	"textdomain": "df-builder",
+	"usesContext": [
+		"postId",
+		"postType"
+	],
+	"supports": {
+		"html": false,
+		"anchor": true,
+		"className": true
+	},
+	"attributes": {
+		"dfb": {
+			"type": "object"
+		},
+		"id": {
+			"type": "number"
+		},
+		"url": {
+			"type": "string",
+			"default": ""
+		},
+		"alt": {
+			"type": "string",
+			"default": ""
+		},
+		"sizeSlug": {
+			"type": "string",
+			"default": "large"
+		},
+		"loading": {
+			"type": "string",
+			"default": "lazy"
+		}
+	},
+	"keywords": [
+		"photo",
+		"picture"
+	],
+	"editorScript": "file:./index.js",
+	"render": "file:./render.php"
+}

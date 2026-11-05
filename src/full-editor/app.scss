@@ -1,0 +1,137 @@
+/* Full-screen takeover of the admin screen. */
+body.dfb-full-editor-screen {
+	overflow: hidden;
+
+	#wpadminbar,
+	#adminmenumain,
+	#wpfooter,
+	#screen-meta,
+	#screen-meta-links,
+	.notice,
+	.update-nag {
+		display: none !important;
+	}
+
+	#wpcontent,
+	#wpbody-content {
+		margin: 0;
+		padding: 0;
+	}
+}
+
+html.wp-toolbar:has(body.dfb-full-editor-screen) {
+	padding-top: 0;
+}
+
+$top: 48px;
+$right: 300px;
+$dark: #1e1e1e;
+$border: #e0e0e0;
+
+.dfb-full-editor {
+	position: fixed;
+	inset: 0;
+	z-index: 100000;
+	background: #f0f0f1;
+}
+
+.dfb-fe {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+	font-size: 13px;
+
+	&--loading {
+		align-items: center;
+		justify-content: center;
+	}
+}
+
+.dfb-fe__top {
+	flex: 0 0 $top;
+	height: $top;
+	display: grid;
+	grid-template-columns: 1fr auto 1fr;
+	align-items: center;
+	gap: 12px;
+	padding: 0 12px 0 0;
+	background: $dark;
+	color: #fff;
+
+	.components-button {
+		color: #fff;
+
+		&:disabled {
+			opacity: .4;
+		}
+
+		&.is-primary {
+			color: #fff;
+		}
+
+		&.is-pressed {
+			background: rgba(255, 255, 255, .15);
+		}
+	}
+}
+
+.dfb-fe__top-left,
+.dfb-fe__top-center,
+.dfb-fe__top-right {
+	display: flex;
+	align-items: center;
+	gap: 4px;
+	min-width: 0;
+}
+
+.dfb-fe__top-right {
+	justify-content: flex-end;
+}
+
+.dfb-fe__logo.components-button {
+	width: $top;
+	height: $top;
+	justify-content: center;
+	font-weight: 800;
+	letter-spacing: -.5px;
+	background: var(--wp-admin-theme-color, #3858e9);
+	border-radius: 0;
+}
+
+.dfb-fe__title {
+	margin-left: 8px;
+	font-weight: 500;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.dfb-fe__body {
+	flex: 1;
+	display: flex;
+	min-height: 0;
+}
+
+.dfb-fe__canvas-wrap {
+	flex: 1;
+	min-width: 0;
+	overflow: auto;
+	display: flex;
+	justify-content: center;
+}
+
+.dfb-fe__right {
+	flex: 0 0 $right;
+	width: $right;
+	overflow-y: auto;
+	background: #fff;
+	border-left: 1px solid $border;
+}
+
+.dfb-fe__snackbars {
+	position: fixed;
+	bottom: 24px;
+	left: 24px;
+	z-index: 100001;
+}

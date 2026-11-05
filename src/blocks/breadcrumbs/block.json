@@ -1,0 +1,44 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "dfb/breadcrumbs",
+	"version": "0.2.0",
+	"title": "Breadcrumbs",
+	"category": "dfb",
+	"icon": "arrow-right-alt2",
+	"description": "Home › Parent › Current page trail with schema.org markup.",
+	"textdomain": "df-builder",
+	"usesContext": [
+		"postId",
+		"postType"
+	],
+	"supports": {
+		"html": false,
+		"anchor": true,
+		"className": true
+	},
+	"attributes": {
+		"dfb": {
+			"type": "object"
+		},
+		"separator": {
+			"type": "string",
+			"default": "›"
+		},
+		"homeLabel": {
+			"type": "string",
+			"default": "Home"
+		},
+		"showCurrent": {
+			"type": "boolean",
+			"default": true
+		}
+	},
+	"keywords": [
+		"navigation",
+		"trail",
+		"path"
+	],
+	"editorScript": "file:./index.js",
+	"render": "file:./render.php"
+}

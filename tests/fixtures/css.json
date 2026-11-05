@@ -1,0 +1,68 @@
+[
+  {
+    "name": "empty styles produce no css",
+    "selector": ".dfb-babc123",
+    "styles": {},
+    "expected": ""
+  },
+  {
+    "name": "base declarations follow schema order, not input order",
+    "selector": ".dfb-babc123",
+    "styles": { "base": { "color": "#ff0000", "display": "flex", "paddingTop": "10", "marginLeft": "auto" } },
+    "expected": ".dfb-babc123{display:flex;padding-top:10px;margin-left:auto;color:#ff0000}"
+  },
+  {
+    "name": "breakpoints and hover",
+    "selector": ".dfb-babc123",
+    "styles": {
+      "phone": { "fontSize": "14px" },
+      "base": { "fontSize": "1.25rem", "lineHeight": "1.4" },
+      "hover": { "backgroundColor": "var(--brand)" },
+      "tablet": { "gap": "clamp(8px, 2vw, 24px)" }
+    },
+    "expected": ".dfb-babc123{font-size:1.25rem;line-height:1.4}.dfb-babc123:hover{background-color:var(--brand)}@media (max-width:992px){.dfb-babc123{gap:clamp(8px, 2vw, 24px)}}@media (max-width:480px){.dfb-babc123{font-size:14px}}"
+  },
+  {
+    "name": "custom breakpoints",
+    "selector": ".card",
+    "breakpoints": { "tablet": 1024, "landscape": 800, "phone": 400 },
+    "styles": { "landscape": { "width": "100%" } },
+    "expected": "@media (max-width:800px){.card{width:100%}}"
+  },
+  {
+    "name": "invalid values are dropped",
+    "selector": ".dfb-babc123",
+    "styles": {
+      "base": {
+        "display": "flexy",
+        "color": "red;}body{display:none",
+        "boxShadow": "0 0 0 red</style><script>",
+        "width": "12qq",
+        "fontFamily": "url(http://x)",
+        "transform": "rotate(2deg) /* hi */",
+        "opacity": "abc",
+        "zIndex": "",
+        "unknownProp": "1"
+      }
+    },
+    "expected": ""
+  },
+  {
+    "name": "background image url and zero",
+    "selector": ".dfb-babc123",
+    "styles": { "base": { "backgroundImage": "https://example.com/a.jpg", "marginTop": "0", "borderRadius": "-4", "backgroundImage2": "x" } },
+    "expected": ".dfb-babc123{margin-top:0;background-image:url(\"https://example.com/a.jpg\");border-radius:-4px}"
+  },
+  {
+    "name": "bad url rejected",
+    "selector": ".dfb-babc123",
+    "styles": { "base": { "backgroundImage": "javascript:alert(1)" } },
+    "expected": ""
+  },
+  {
+    "name": "colors",
+    "selector": ".x",
+    "styles": { "base": { "color": "rgba(0, 0, 0, .5)", "borderColor": "transparent", "backgroundColor": "#abcd" } },
+    "expected": ".x{color:rgba(0, 0, 0, .5);background-color:#abcd;border-color:transparent}"
+  }
+]

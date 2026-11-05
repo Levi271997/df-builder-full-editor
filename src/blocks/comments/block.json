@@ -1,0 +1,44 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "dfb/comments",
+	"version": "0.2.0",
+	"title": "Comments",
+	"category": "dfb",
+	"icon": "admin-comments",
+	"description": "Comment list and comment form for the current post.",
+	"textdomain": "df-builder",
+	"usesContext": [
+		"postId",
+		"postType"
+	],
+	"supports": {
+		"html": false,
+		"anchor": true,
+		"className": true,
+		"multiple": false
+	},
+	"attributes": {
+		"dfb": {
+			"type": "object"
+		},
+		"showList": {
+			"type": "boolean",
+			"default": true
+		},
+		"showForm": {
+			"type": "boolean",
+			"default": true
+		},
+		"title": {
+			"type": "string",
+			"default": "Comments"
+		}
+	},
+	"keywords": [
+		"discussion",
+		"reply"
+	],
+	"editorScript": "file:./index.js",
+	"render": "file:./render.php"
+}

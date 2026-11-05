@@ -1,0 +1,46 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "dfb/code",
+	"version": "0.2.0",
+	"title": "Code Block",
+	"category": "dfb",
+	"icon": "editor-code",
+	"description": "Custom HTML, CSS and JavaScript (only for users allowed to post unfiltered HTML).",
+	"textdomain": "df-builder",
+	"usesContext": [
+		"postId",
+		"postType"
+	],
+	"supports": {
+		"html": false,
+		"anchor": true,
+		"className": true
+	},
+	"attributes": {
+		"dfb": {
+			"type": "object"
+		},
+		"html": {
+			"type": "string",
+			"default": ""
+		},
+		"css": {
+			"type": "string",
+			"default": ""
+		},
+		"js": {
+			"type": "string",
+			"default": ""
+		}
+	},
+	"keywords": [
+		"html",
+		"css",
+		"javascript",
+		"embed",
+		"custom"
+	],
+	"editorScript": "file:./index.js",
+	"render": "file:./render.php"
+}

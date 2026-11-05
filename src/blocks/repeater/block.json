@@ -1,0 +1,86 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "dfb/repeater",
+	"version": "0.2.0",
+	"title": "Posts Grid (Repeater)",
+	"category": "dfb",
+	"icon": "grid-view",
+	"description": "Loops over posts and repeats the card design you build inside it.",
+	"textdomain": "df-builder",
+	"usesContext": [
+		"postId",
+		"postType"
+	],
+	"supports": {
+		"html": false,
+		"anchor": true,
+		"className": true
+	},
+	"attributes": {
+		"dfb": {
+			"type": "object"
+		},
+		"postType": {
+			"type": "string",
+			"default": "post"
+		},
+		"perPage": {
+			"type": "number",
+			"default": 6
+		},
+		"offset": {
+			"type": "number",
+			"default": 0
+		},
+		"orderBy": {
+			"type": "string",
+			"default": "date"
+		},
+		"order": {
+			"type": "string",
+			"default": "desc"
+		},
+		"taxonomy": {
+			"type": "string",
+			"default": ""
+		},
+		"terms": {
+			"type": "string",
+			"default": ""
+		},
+		"inherit": {
+			"type": "boolean",
+			"default": false
+		},
+		"excludeCurrent": {
+			"type": "boolean",
+			"default": true
+		},
+		"columns": {
+			"type": "number",
+			"default": 3
+		},
+		"stackOn": {
+			"type": "string",
+			"default": "landscape"
+		},
+		"pagination": {
+			"type": "boolean",
+			"default": false
+		},
+		"emptyText": {
+			"type": "string",
+			"default": "Nothing found."
+		}
+	},
+	"keywords": [
+		"query",
+		"loop",
+		"posts",
+		"repeater",
+		"easy posts"
+	],
+	"editorScript": "file:./index.js",
+	"render": "file:./render.php"
+}

@@ -1,0 +1,13 @@
+node_modules
+src
+tests
+vendor
+.wp-env.json
+.gitignore
+.distignore
+composer.json
+composer.lock
+package.json
+package-lock.json
+phpunit.xml.dist
+webpack.config.js

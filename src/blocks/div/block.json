@@ -1,0 +1,37 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "dfb/div",
+	"version": "0.1.0",
+	"title": "Div",
+	"category": "dfb",
+	"icon": "screenoptions",
+	"description": "Flexible flex container (Oxygen-style Div).",
+	"textdomain": "df-builder",
+	"usesContext": [
+		"postId",
+		"postType"
+	],
+	"supports": {
+		"html": false,
+		"anchor": true,
+		"className": true
+	},
+	"attributes": {
+		"dfb": {
+			"type": "object"
+		},
+		"tagName": {
+			"type": "string",
+			"default": "div"
+		}
+	},
+	"keywords": [
+		"container",
+		"box",
+		"flex",
+		"wrapper"
+	],
+	"editorScript": "file:./index.js",
+	"render": "file:./render.php"
+}

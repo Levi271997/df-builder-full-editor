@@ -1,0 +1,33 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "dfb/post-content",
+	"version": "0.1.0",
+	"title": "Post Content",
+	"category": "dfb",
+	"icon": "media-text",
+	"description": "Outputs the current post/page content inside a template.",
+	"textdomain": "df-builder",
+	"usesContext": [
+		"postId",
+		"postType"
+	],
+	"supports": {
+		"html": false,
+		"anchor": true,
+		"className": true,
+		"multiple": false
+	},
+	"attributes": {
+		"dfb": {
+			"type": "object"
+		}
+	},
+	"keywords": [
+		"content",
+		"template",
+		"body"
+	],
+	"editorScript": "file:./index.js",
+	"render": "file:./render.php"
+}
