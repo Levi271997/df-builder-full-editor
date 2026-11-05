@@ -3,8 +3,10 @@ import {
 	BlockEditorProvider,
 	BlockCanvas,
 	BlockInspector,
+	BlockBreadcrumb,
 	store as blockEditorStore,
 } from '@wordpress/block-editor';
+import { PluginArea } from '@wordpress/plugins';
 import {
 	SlotFillProvider,
 	Popover,
@@ -13,12 +15,29 @@ import {
 } from '@wordpress/components';
 import { useSelect, useDispatch } from '@wordpress/data';
 import { store as noticesStore } from '@wordpress/notices';
-import { useState } from '@wordpress/element';
+import { useState, useCallback } from '@wordpress/element';
 import useDocument from './use-document';
 import useEditorSettings from './use-editor-settings';
 import TopBar from './top-bar';
 import LeftPanel from './left-panel';
+import ClassesPanel from './classes-panel';
 import { useViewport, canvasWidth } from './viewport';
+import {
+	useBuilderShortcuts,
+	ShortcutsHelp,
+	ShortcutsButton,
+} from './shortcuts';
+
+const CLASSES_TAB = {
+	classes: {
+		tab: {
+			name: 'classes',
+			label: __( 'Classes', 'df-builder' ),
+			icon: 'tag',
+		},
+		render: () => <ClassesPanel />,
+	},
+};
 
 function Notices() {
 	const notices = useSelect(
@@ -105,23 +124,43 @@ export function Layout( {
 	children,
 } ) {
 	const [ tab, setTab ] = useState( 'add' );
+	const [ helpOpen, setHelpOpen ] = useState( false );
+	const { setViewport } = useViewport();
+	const openHelp = useCallback( () => setHelpOpen( true ), [] );
+	useBuilderShortcuts( { doc, setViewport, openHelp } );
+
+	const tabs = { ...CLASSES_TAB, ...( extraTabs || {} ) };
+	const top = {
+		left: topBarExtra?.left,
+		right: (
+			<>
+				{ topBarExtra?.right }
+				<ShortcutsButton />
+			</>
+		),
+	};
+
 	return (
 		<div className="dfb-fe">
-			<TopBar config={ config } doc={ doc } extra={ topBarExtra } />
+			<TopBar config={ config } doc={ doc } extra={ top } />
 			<div className="dfb-fe__body">
-				<LeftPanel
-					tab={ tab }
-					setTab={ setTab }
-					extraTabs={ extraTabs }
-				/>
+				<LeftPanel tab={ tab } setTab={ setTab } extraTabs={ tabs } />
 				<div className="dfb-fe__center">
 					<Canvas styles={ settings.styles } />
-					{ footer && (
-						<footer className="dfb-fe__footer">{ footer }</footer>
-					) }
+					<footer className="dfb-fe__footer">
+						{ footer || (
+							<BlockBreadcrumb
+								rootLabelText={ __( 'Page', 'df-builder' ) }
+							/>
+						) }
+					</footer>
 				</div>
 				<RightPanel emptyContent={ rightEmpty } />
 			</div>
+			{ helpOpen && (
+				<ShortcutsHelp onClose={ () => setHelpOpen( false ) } />
+			) }
+			<PluginArea scope="dfb-full-editor" />
 			{ children }
 		</div>
 	);

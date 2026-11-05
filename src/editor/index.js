@@ -8,6 +8,7 @@ import { STORE } from './store';
 import './hooks';
 import './templates';
 import './open-full-editor';
+import './copy-styles';
 import { registerSources } from './bindings/sources';
 
 // Load global classes once.

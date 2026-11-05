@@ -27,6 +27,19 @@ An Oxygen-style **full-screen page builder** for WordPress, for Digitalfeet clie
 - **Breakpoint buttons:** resize the canvas to the Tablet, Landscape or Phone width and switch the style panel to that breakpoint, so the styles you set apply to that screen size.
 - **Right panel:** the selected element's settings and the DF Builder style panel (the **Styles** tab).
 - **DF** (top left) exits back to where you came from.
+- **Classes tab (left rail):** every global class, with how many elements on this page use it. Create, rename or delete classes here. Click the usage count to select the first element that uses the class.
+- **Copy / paste styles:** open an element's **⋮** menu and choose **Copy styles**. Then select one or more other elements and choose **Paste styles**; their styles and classes are replaced. **Clear styles** removes them. The copied styles stay available across pages in the same browser.
+- **Breadcrumb bar** (under the canvas): shows where the selected element sits in the page (Page › Section › Div › Heading). Click any level to select it.
+- **Keyboard shortcuts** (the **?** button, or Shift+?):
+
+  | Shortcut | Action |
+  |---|---|
+  | Ctrl/⌘+S | Save |
+  | Ctrl/⌘+Z, Ctrl/⌘+Shift+Z (or Ctrl+Y) | Undo, Redo |
+  | Ctrl/⌘+Shift+D | Duplicate element |
+  | Shift+Alt+Z | Delete element |
+  | Ctrl/⌘+Alt+T / Y | Insert before / after |
+  | Alt+Shift+1 … 4 | Desktop / Tablet / Landscape / Phone |
 
 
 **Requires:** WordPress 6.6+ (6.7+ recommended for live dynamic-data previews of core blocks), PHP 8.1+.
